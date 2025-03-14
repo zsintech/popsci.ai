@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PopSciAi | @popsci_ai</title>
+        <meta name="description" content="PopSciAi: Explore open-source science content from Instagram reels and more, covering technology, paleontology, marine biology, and beyond. All curated, static, and ad-free.">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+            :root {
+                --primary-color: #1a2a3a;
+                --secondary-color: #0f6bbd;
+                --accent-color: #d13a2c;
+                --light-bg: #f5f5f5;
+                --card-bg: #ffffff;
+                --text-color: #333333;
+                --text-light: #555555;
+                --link-hover: #044e8f;
+                --card-shadow: 0 3px 10px rgba(0,0,0,0.1);
+                --card-hover-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+            
+            body {
+                font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 0;
+                background-color: var(--light-bg);
+                color: var(--text-color);
+            }
+            
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            
+            header {
+                text-align: center;
+                padding: 40px 0;
+                background-color: var(--card-bg);
+                border-radius: 12px;
+                margin-bottom: 40px;
+                box-shadow: var(--card-shadow);
+                background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+                position: relative;
+                overflow: hidden;
+            }
+            
+            header::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle, transparent 20%, var(--light-bg) 150%);
+                opacity: 0.7;
+            }
+            
+            .header-content {
+                position: relative;
+                z-index: 2;
+            }
+            
+            h1 {
+                color: var(--primary-color);
+                margin-bottom: 15px;
+                font-size: 2.5rem;
+                letter-spacing: 1px;
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            }
+            
+            .description {
+                max-width: 700px;
+                margin: 0 auto 30px;
+                text-align: center;
+                color: #333333;
+                font-size: 1.1rem;
+            }
+            
+            .social-link {
+                display: inline-flex;
+                align-items: center;
+                color: #ffffff;
+                text-decoration: none;
+                font-weight: 500;
+                padding: 8px 15px;
+                border-radius: 25px;
+                background-color: var(--secondary-color);
+                transition: all 0.3s;
+                margin-top: 10px;
+            }
+            
+            .social-link:hover {
+                background-color: var(--link-hover);
+                color: white;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+            
+            .social-link i {
+                margin-right: 8px;
+                font-size: 1.2rem;
+            }
+            
+            .topic-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 30px;
+            }
+            
+            .topic-card {
+                background: var(--card-bg);
+                border-radius: 12px;
+                padding: 25px;
+                transition: all 0.3s ease;
+                box-shadow: var(--card-shadow);
+                position: relative;
+                overflow: hidden;
+                border-top: 4px solid var(--secondary-color);
+            }
+            
+            .topic-card:hover {
+                transform: translateY(-5px);
+                box-shadow: var(--card-hover-shadow);
+            }
+            
+            .topic-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 5px;
+                background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+                opacity: 0.7;
+            }
+            
+            .topic-card h2 {
+                color: var(--primary-color);
+                margin-top: 5px;
+                text-align: center;
+                padding-bottom: 15px;
+                border-bottom: 1px solid #eee;
+                font-size: 1.6rem;
+            }
+            
+            .topic-card p {
+                margin-bottom: 20px;
+                text-align: center;
+                color: var(--text-light);
+                font-size: 1rem;
+            }
+            
+            .topic-instagram {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            
+            .topic-instagram a {
+                display: inline-flex;
+                align-items: center;
+                color: var(--secondary-color);
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 0.9rem;
+                transition: all 0.3s;
+            }
+            
+            .topic-instagram a:hover {
+                color: var(--link-hover);
+                transform: translateY(-2px);
+            }
+            
+            .topic-instagram i {
+                margin-right: 5px;
+                font-size: 1.1rem;
+            }
+            
+            .links-list {
+                list-style: none;
+                padding: 0;
+            }
+            
+            .links-list li {
+                margin-bottom: 12px;
+                padding-bottom: 12px;
+                border-bottom: 1px solid #eee;
+                transition: background-color 0.2s;
+                border-radius: 6px;
+                padding: 8px;
+            }
+            
+            .links-list li:hover {
+                background-color: rgba(52, 152, 219, 0.05);
+            }
+            
+            .links-list li:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+            }
+            
+            .links-list a {
+                color: var(--secondary-color);
+                text-decoration: none;
+                font-weight: 500;
+                display: block;
+                transition: color 0.2s;
+            }
+            
+            .links-list a:hover {
+                color: var(--link-hover);
+                text-decoration: underline;
+            }
+            
+            .link-description {
+                margin: 5px 0;
+                font-size: 0.9rem;
+                color: var(--text-color);
+                line-height: 1.4;
+            }
+            
+            .source {
+                font-size: 0.85em;
+                color: var(--text-light);
+                display: block;
+                margin-top: 5px;
+            }
+            
+            footer {
+                text-align: center;
+                margin-top: 60px;
+                padding: 25px;
+                color: #ffffff;
+                background-color: var(--primary-color);
+                border-radius: 12px 12px 0 0;
+                box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+            }
+            
+            footer a {
+                color: #a8cdf0;
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.2s;
+            }
+            
+            footer a:hover {
+                color: #ffffff;
+                text-decoration: underline;
+            }
+            
+            .footer-social {
+                margin-bottom: 10px;
+            }
+            
+            .footer-social a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                background-color: rgba(255,255,255,0.2);
+                color: #ffffff;
+                margin: 0 5px;
+                transition: all 0.3s;
+            }
+            
+            .footer-social a:hover {
+                background-color: rgba(255,255,255,0.3);
+                color: white;
+                transform: translateY(-3px);
+            }
+            
+            .creator-info {
+                margin: 15px 0;
+                font-size: 0.95rem;
+                line-height: 1.6;
+                color: #ffffff;
+            }
+            
+            .contact-info {
+                display: inline-flex;
+                align-items: center;
+                color: #a8cdf0;
+                text-decoration: none;
+                font-weight: 500;
+                margin: 10px 0;
+            }
+            
+            .contact-info:hover {
+                color: #ffffff;
+            }
+            
+            .contact-info i {
+                margin-right: 8px;
+            }
+            
+            @media (max-width: 768px) {
+                .topic-grid {
+                    grid-template-columns: 1fr;
+                }
+                
+                h1 {
+                    font-size: 2rem;
+                }
+                
+                .topic-card {
+                    padding: 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div class="header-content">
+                    <h1>PopSciAi</h1>
+                    <p class="description">Dive into a curated collection of open-source science content—spanning Wikipedia, public domain articles, YouTube, and more—based on my Instagram Reels. Discover fascinating insights in a fully static, ad-free environment.</p>
+                    <a href="https://www.instagram.com/popsci_ai?igsh=MTM0ZWpyMnFmNTlpMg==" class="social-link" target="_blank"><i class="fab fa-instagram"></i>Follow @popsci_ai</a>
+                </div>
+            </header>
+            
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <h2>Technology</h2>
+                    <p>Exploring open-source insights, news, and media on the innovations shaping our future.</p>
+                    <div class="topic-instagram">
+                        <a href="https://www.instagram.com/tech_popsciai?igsh=MTYzczhuMTllNjJ0Ng==" target="_blank"><i class="fab fa-instagram"></i>@tech_popsciai</a>
+                    </div>
+                    <ul class="links-list">
+                        <li>
+                            <a href="https://click.popsci.ai/Quantumcomputing">Quantum Computing</a>
+                            <p class="link-description">The revolutionary field using quantum mechanics to process information in ways impossible for classical computers.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/HedyLamarr">Hedy Lamarr</a>
+                            <p class="link-description">Hollywood actress and inventor who pioneered the technology that would form the basis for today's WiFi, GPS, and Bluetooth.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/Neurorobotics">Neurorobotics</a>
+                            <p class="link-description">The field where neuroscience, robotics, and AI converge to create brain-inspired machines.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/BiohybridRobots">Biohybrid Robots</a>
+                            <p class="link-description">Robots integrating biological materials and mechanical parts to create more advanced and adaptable systems.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/digitalDivide">Digital Divide</a>
+                            <p class="link-description">The gap between demographics that have access to modern information technology and those with limited or no access.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/Robotics1">Robotics Video 1</a>
+                            <p class="link-description">An informative video exploring cutting-edge developments in robotics and their applications.</p>
+                            <span class="source">Source: YouTube</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/Robotics2">Robotics Video 2</a>
+                            <p class="link-description">Fascinating insights into the evolution of robot design and functionality.</p>
+                            <span class="source">Source: YouTube</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <h2>Paleontology</h2>
+                    <p>Discovering ancient life through open-access resources and what fossils tell us about Earth's history.</p>
+                    <ul class="links-list">
+                        <li>
+                            <a href="https://click.popsci.ai/ghostlineages">Ghost Lineages</a>
+                            <p class="link-description">The fascinating gaps in the fossil record where species must have existed but haven't been discovered, helping scientists understand evolutionary history.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/Tracefossills">Trace Fossils</a>
+                            <p class="link-description">Records of biological activity like footprints, burrows and tracks that provide unique insights into ancient animal behavior, even when body fossils aren't preserved.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/paleobirds">Ichthyornis (Paleobiological Birds)</a>
+                            <p class="link-description">An extinct toothed seabird that lived during the Late Cretaceous period, providing crucial insights into bird evolution.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/paleontology2">Paleontology Video</a>
+                            <p class="link-description">Engaging exploration of fossil discoveries and what they reveal about prehistoric life on Earth.</p>
+                            <span class="source">Source: YouTube</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <h2>Ornithology</h2>
+                    <p>The fascinating world of birds from public domain resources, their behaviors, and conservation.</p>
+                    <div class="topic-instagram">
+                        <a href="https://www.instagram.com/birds_popsciai?igsh=aHJxOW1hNDhncXB5" target="_blank"><i class="fab fa-instagram"></i>@birds_popsciai</a>
+                    </div>
+                    <ul class="links-list">
+                        <li>
+                            <a href="https://click.popsci.ai/Hummingbirds">Hummingbirds</a>
+                            <p class="link-description">These remarkable birds can fly backwards, hover in mid-air, and have the highest metabolism of any animal except insects.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/orintology2">Ornithology Video</a>
+                            <p class="link-description">Visual exploration of bird behaviors, adaptations, and the science behind studying our feathered friends.</p>
+                            <span class="source">Source: YouTube</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <h2>Neuroscience</h2>
+                    <p>Understanding the brain and nervous system functions through accessible educational content.</p>
+                    <div class="topic-instagram">
+                        <a href="https://www.instagram.com/neuro_popsciai?igsh=Z2Q5ZDA3M3E2aGZh" target="_blank"><i class="fab fa-instagram"></i>@neuro_popsciai</a>
+                    </div>
+                    <ul class="links-list">
+                        <li>
+                            <a href="https://click.popsci.ai/Neuroethology">Neuroethology</a>
+                            <p class="link-description">The study of how animal brains produce natural behaviors, combining neuroscience, ecology, and evolutionary biology.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/neurons">Neurons</a>
+                            <p class="link-description">The fundamental cells of the nervous system that process and transmit information through electrical and chemical signals.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/Neuro3">DMN Neural Network</a>
+                            <p class="link-description">The Default Mode Network, a brain system active when we're not focused on external tasks, playing a key role in creativity and self-reflection.</p>
+                            <span class="source">Source: EL PAÍS English</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/neuroconsciousness">Neuroconsciousness</a>
+                            <p class="link-description">Exploring the neural basis of consciousness and how our subjective experiences arise from brain activity.</p>
+                            <span class="source">Source: YouTube</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/SapolskyNeuroLec1">Sapolsky Neuroscience Lecture</a>
+                            <p class="link-description">Renowned Stanford professor Robert Sapolsky's engaging lecture on the biological basis of behavior and brain function.</p>
+                            <span class="source">Source: YouTube</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/ANN">Neural Networks (ML)</a>
+                            <p class="link-description">Artificial neural networks inspired by the human brain, forming the foundation of modern machine learning and AI systems.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <h2>Climate Science</h2>
+                    <p>Open-source research and information about our changing climate and its effects on our planet.</p>
+                    <div class="topic-instagram">
+                        <a href="https://www.instagram.com/climate_popsciai?igsh=MWhhMXA1d3dscnJyNw==" target="_blank"><i class="fab fa-instagram"></i>@climate_popsciai</a>
+                    </div>
+                    <ul class="links-list">
+                        <li>
+                            <a href="https://click.popsci.ai/cryokinite">Cryoconite</a>
+                            <p class="link-description">Dark, windblown dust that collects on glaciers, affecting ice melt rates and hosting unique microbial ecosystems.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/extratropicalCyclones">Extratropical Cyclones</a>
+                            <p class="link-description">Large-scale low-pressure weather systems outside the tropics that drive much of our day-to-day weather variability.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/ClimateScience2">Climate Science Video</a>
+                            <p class="link-description">Visual explanation of climate systems, changes, and the scientific consensus on global climate patterns.</p>
+                            <span class="source">Source: YouTube</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/TippingPoints">Tipping Points</a>
+                            <p class="link-description">Critical thresholds in the Earth's climate system that, when crossed, lead to substantial and often irreversible changes.</p>
+                            <span class="source">Source: YouTube</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <h2>Marine Biology</h2>
+                    <p>Exploring ocean ecosystems and marine life through publicly available educational resources.</p>
+                    <div class="topic-instagram">
+                        <a href="https://www.instagram.com/marine_popsciai?igsh=MXRnOGg4bDczOWF0eQ==" target="_blank"><i class="fab fa-instagram"></i>@marine_popsciai</a>
+                    </div>
+                    <ul class="links-list">
+                        <li>
+                            <a href="https://click.popsci.ai/WhaleFalls">Whale Falls</a>
+                            <p class="link-description">When a whale dies and sinks to the ocean floor, creating a unique ecosystem that can sustain deep-sea life for decades.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/ColossalSquid">Colossal Squid</a>
+                            <p class="link-description">One of the ocean's most elusive and largest invertebrates, with the largest eyes of any known animal on Earth.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/PhytoplanktonWiki">Phytoplankton</a>
+                            <p class="link-description">Microscopic marine algae that produce half the world's oxygen and form the foundation of oceanic food webs.</p>
+                            <span class="source">Source: Wikipedia</span>
+                        </li>
+                        <li>
+                            <a href="https://click.popsci.ai/Microplastics">Microplastics</a>
+                            <p class="link-description">Tiny plastic particles in our oceans that pose significant threats to marine ecosystems and potentially human health.</p>
+                            <span class="source">Source: YouTube</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <footer>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/popsci_ai?igsh=MTM0ZWpyMnFmNTlpMg==" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="creator-info">
+                    <p>Created by a BMSIS scholar studying Software Engineering at AUIS. Through PopSciAi, I'm passionate about making science accessible to everyone by curating and sharing interesting content across multiple disciplines.</p>
+                    <a href="mailto:zheenstran@gmail.com" class="contact-info"><i class="fas fa-envelope"></i>Contact for collaborations: zheenstran@gmail.com</a>
+                </div>
+                <p>© PopSciAi 2025 | All topics gathered from publicly available and open-source platforms (Wikipedia, YouTube, etc.)</p>
+            </footer>
+        </div>
+        
+        <!-- Font Awesome for icons -->
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    </body>
+</html>
