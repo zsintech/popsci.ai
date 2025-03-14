@@ -1,0 +1,4 @@
+   cd D:\myCode\Static
+   git add .
+   git commit -m "Description of your changes"
+   git push
