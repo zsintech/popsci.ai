@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
         <title>PopSciAi | @popsci_ai</title>
         <meta name="description" content="PopSciAi: Explore open-source science content from Instagram reels and more, covering technology, paleontology, marine biology, and beyond. All curated, static, and ad-free.">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -27,20 +27,22 @@
                 padding: 0;
                 background-color: var(--light-bg);
                 color: var(--text-color);
+                font-size: 16px;
             }
             
             .container {
+                width: 95%;
                 max-width: 1200px;
                 margin: 0 auto;
-                padding: 20px;
+                padding: 15px;
             }
             
             header {
                 text-align: center;
-                padding: 40px 0;
+                padding: 30px 15px;
                 background-color: var(--card-bg);
                 border-radius: 12px;
-                margin-bottom: 40px;
+                margin-bottom: 30px;
                 box-shadow: var(--card-shadow);
                 background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
                 position: relative;
@@ -66,17 +68,19 @@
             h1 {
                 color: var(--primary-color);
                 margin-bottom: 15px;
-                font-size: 2.5rem;
+                font-size: 2rem;
                 letter-spacing: 1px;
                 text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
             }
             
             .description {
+                width: 100%;
                 max-width: 700px;
-                margin: 0 auto 30px;
+                margin: 0 auto 20px;
                 text-align: center;
                 color: #333333;
-                font-size: 1.1rem;
+                font-size: 1rem;
+                padding: 0 10px;
             }
             
             .social-link {
@@ -106,19 +110,16 @@
             
             .topic-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-                gap: 30px;
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .topic-card {
-                background: var(--card-bg);
+                background-color: var(--card-bg);
                 border-radius: 12px;
-                padding: 25px;
-                transition: all 0.3s ease;
+                padding: 20px 15px;
                 box-shadow: var(--card-shadow);
-                position: relative;
-                overflow: hidden;
-                border-top: 4px solid var(--secondary-color);
+                transition: transform 0.3s, box-shadow 0.3s;
             }
             
             .topic-card:hover {
@@ -139,23 +140,19 @@
             
             .topic-card h2 {
                 color: var(--primary-color);
-                margin-top: 5px;
-                text-align: center;
-                padding-bottom: 15px;
-                border-bottom: 1px solid #eee;
-                font-size: 1.6rem;
+                margin-top: 0;
+                margin-bottom: 10px;
+                font-size: 1.5rem;
             }
             
             .topic-card p {
-                margin-bottom: 20px;
-                text-align: center;
-                color: var(--text-light);
-                font-size: 1rem;
+                margin-bottom: 15px;
+                font-size: 0.95rem;
             }
             
             .topic-instagram {
-                text-align: center;
-                margin-bottom: 20px;
+                margin-bottom: 15px;
+                font-size: 0.9rem;
             }
             
             .topic-instagram a {
@@ -181,6 +178,7 @@
             .links-list {
                 list-style: none;
                 padding: 0;
+                margin: 0;
             }
             
             .links-list li {
@@ -216,13 +214,13 @@
             
             .link-description {
                 margin: 5px 0;
-                font-size: 0.9rem;
+                font-size: 0.85rem;
                 color: var(--text-color);
                 line-height: 1.4;
             }
             
             .source {
-                font-size: 0.85em;
+                font-size: 0.8em;
                 color: var(--text-light);
                 display: block;
                 margin-top: 5px;
@@ -230,12 +228,13 @@
             
             footer {
                 text-align: center;
-                margin-top: 60px;
-                padding: 25px;
+                margin-top: 40px;
+                padding: 20px 15px;
                 color: #ffffff;
                 background-color: var(--primary-color);
                 border-radius: 12px 12px 0 0;
                 box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+                font-size: 0.9rem;
             }
             
             footer a {
@@ -275,9 +274,10 @@
             
             .creator-info {
                 margin: 15px 0;
-                font-size: 0.95rem;
-                line-height: 1.6;
+                font-size: 0.9rem;
+                line-height: 1.5;
                 color: #ffffff;
+                padding: 0 5px;
             }
             
             .contact-info {
@@ -287,6 +287,8 @@
                 text-decoration: none;
                 font-weight: 500;
                 margin: 10px 0;
+                font-size: 0.85rem;
+                word-break: break-word;
             }
             
             .contact-info:hover {
@@ -297,25 +299,11 @@
                 margin-right: 8px;
             }
             
-            @media (max-width: 768px) {
-                .topic-grid {
-                    grid-template-columns: 1fr;
-                }
-                
-                h1 {
-                    font-size: 2rem;
-                }
-                
-                .topic-card {
-                    padding: 20px;
-                }
-            }
-            
             .womens-history-month {
                 background-color: var(--card-bg);
                 border-radius: 12px;
-                padding: 25px;
-                margin-bottom: 40px;
+                padding: 20px 15px;
+                margin-bottom: 30px;
                 box-shadow: var(--card-shadow);
                 text-align: center;
                 border-left: 4px solid #d6336c;
@@ -326,7 +314,13 @@
             .womens-history-month h3 {
                 color: #d6336c;
                 margin-top: 0;
-                font-size: 1.8rem;
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+            
+            .womens-history-month p {
+                margin-bottom: 15px;
+                padding: 0 5px;
             }
             
             .womens-history-month ul {
@@ -334,10 +328,10 @@
                 padding: 0;
                 margin: 0 auto;
                 display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 20px;
-                max-width: 100%;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                gap: 15px;
             }
             
             .womens-history-month li {
@@ -345,11 +339,9 @@
                 padding: 15px;
                 border-radius: 8px;
                 transition: all 0.3s ease;
-                flex: 1;
-                min-width: 250px;
-                max-width: 400px;
+                width: 100%;
                 box-sizing: border-box;
-                margin-bottom: 10px;
+                margin: 0;
             }
             
             .womens-history-month li:hover {
@@ -370,18 +362,117 @@
                 text-decoration: underline;
             }
             
-            @media (max-width: 768px) {
+            @media (min-width: 600px) {
+                body {
+                    font-size: 16px;
+                }
+                
+                .container {
+                    padding: 20px;
+                }
+                
+                header {
+                    padding: 35px 20px;
+                }
+                
+                h1 {
+                    font-size: 2.2rem;
+                }
+                
+                .description {
+                    font-size: 1.05rem;
+                }
+                
+                .womens-history-month {
+                    padding: 25px 20px;
+                }
+                
+                .womens-history-month h3 {
+                    font-size: 1.7rem;
+                }
+                
                 .womens-history-month ul {
-                    flex-direction: column;
-                    align-items: center;
-                    width: 100%;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: center;
                 }
                 
                 .womens-history-month li {
-                    width: 100%;
-                    max-width: 100%;
-                    margin-right: 0;
-                    margin-left: 0;
+                    flex: 1;
+                    min-width: 250px;
+                    max-width: 400px;
+                }
+                
+                .topic-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                
+                .link-description {
+                    font-size: 0.9rem;
+                }
+            }
+            
+            @media (min-width: 992px) {
+                body {
+                    font-size: 17px;
+                }
+                
+                .container {
+                    padding: 20px;
+                }
+                
+                header {
+                    padding: 40px;
+                    margin-bottom: 40px;
+                }
+                
+                h1 {
+                    font-size: 2.5rem;
+                }
+                
+                .description {
+                    font-size: 1.1rem;
+                    padding: 0;
+                }
+                
+                .womens-history-month {
+                    padding: 30px;
+                }
+                
+                .womens-history-month h3 {
+                    font-size: 1.8rem;
+                }
+                
+                .topic-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 30px;
+                }
+                
+                .topic-card {
+                    padding: 25px;
+                }
+                
+                .topic-card h2 {
+                    font-size: 1.7rem;
+                }
+                
+                .topic-card p {
+                    font-size: 1rem;
+                }
+                
+                .link-description {
+                    font-size: 0.95rem;
+                }
+                
+                footer {
+                    padding: 30px;
+                    font-size: 1rem;
+                }
+                
+                .creator-info {
+                    font-size: 0.95rem;
+                    max-width: 700px;
+                    margin: 20px auto;
                 }
             }
         </style>
@@ -396,7 +487,6 @@
                 </div>
             </header>
             
-            <!-- Women's History Month Section -->
             <div class="womens-history-month">
                 <h3>Women's History Month</h3>
                 <p>Celebrating women pioneers in science and technology:</p>
@@ -613,7 +703,6 @@
             </footer>
         </div>
         
-        <!-- Font Awesome for icons -->
         <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     </body>
 </html>
