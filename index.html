@@ -93,7 +93,7 @@
                 border-radius: 25px;
                 background-color: var(--secondary-color);
                 transition: all 0.3s;
-                margin-top: 10px;
+                margin: 5px;
             }
             
             .social-link:hover {
@@ -101,6 +101,14 @@
                 color: white;
                 transform: translateY(-2px);
                 box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+            
+            .youtube-link {
+                background-color: #FF0000;
+            }
+            
+            .youtube-link:hover {
+                background-color: #CC0000;
             }
             
             .social-link i {
@@ -483,7 +491,10 @@
                 <div class="header-content">
                     <h1>PopSciAi</h1>
                     <p class="description">Dive into a curated collection of open-source science content—spanning Wikipedia, public domain articles, YouTube, and more—based on my Instagram Reels. Discover fascinating insights in a fully static, ad-free environment.</p>
-                    <a href="https://www.instagram.com/popsci_ai?igsh=MTM0ZWpyMnFmNTlpMg==" class="social-link" target="_blank"><i class="fab fa-instagram"></i>Follow @popsci_ai</a>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/popsci_ai?igsh=MTM0ZWpyMnFmNTlpMg==" target="_blank" class="social-link"><i class="fab fa-instagram"></i>@popsci_ai</a>
+                        <a href="https://www.youtube.com/@PopSci_Ai" target="_blank" class="social-link youtube-link"><i class="fab fa-youtube"></i>@PopSci_Ai</a>
+                    </div>
                 </div>
             </header>
             
@@ -693,6 +704,7 @@
             <footer>
                 <div class="footer-social">
                     <a href="https://www.instagram.com/popsci_ai?igsh=MTM0ZWpyMnFmNTlpMg==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@PopSci_Ai" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
                 <div class="creator-info">
                     <p>Created by a BMSIS scholar studying Software Engineering at AUIS. Through PopSciAi, I'm passionate about making science accessible to everyone by curating and sharing interesting content across multiple disciplines.</p>
