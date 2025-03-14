@@ -319,6 +319,8 @@
                 box-shadow: var(--card-shadow);
                 text-align: center;
                 border-left: 4px solid #d6336c;
+                overflow: hidden;
+                position: relative;
             }
             
             .womens-history-month h3 {
@@ -330,10 +332,12 @@
             .womens-history-month ul {
                 list-style: none;
                 padding: 0;
+                margin: 0 auto;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 20px;
+                max-width: 100%;
             }
             
             .womens-history-month li {
@@ -344,6 +348,8 @@
                 flex: 1;
                 min-width: 250px;
                 max-width: 400px;
+                box-sizing: border-box;
+                margin-bottom: 10px;
             }
             
             .womens-history-month li:hover {
@@ -355,6 +361,8 @@
                 color: var(--secondary-color);
                 text-decoration: none;
                 font-weight: 600;
+                display: inline-block;
+                word-break: break-word;
             }
             
             .womens-history-month a:hover {
@@ -366,10 +374,14 @@
                 .womens-history-month ul {
                     flex-direction: column;
                     align-items: center;
+                    width: 100%;
                 }
                 
                 .womens-history-month li {
                     width: 100%;
+                    max-width: 100%;
+                    margin-right: 0;
+                    margin-left: 0;
                 }
             }
         </style>
