@@ -310,6 +310,68 @@
                     padding: 20px;
                 }
             }
+            
+            .womens-history-month {
+                background-color: var(--card-bg);
+                border-radius: 12px;
+                padding: 25px;
+                margin-bottom: 40px;
+                box-shadow: var(--card-shadow);
+                text-align: center;
+                border-left: 4px solid #d6336c;
+            }
+            
+            .womens-history-month h3 {
+                color: #d6336c;
+                margin-top: 0;
+                font-size: 1.8rem;
+            }
+            
+            .womens-history-month ul {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            
+            .womens-history-month li {
+                background-color: rgba(214, 51, 108, 0.1);
+                padding: 15px;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                flex: 1;
+                min-width: 250px;
+                max-width: 400px;
+            }
+            
+            .womens-history-month li:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            
+            .womens-history-month a {
+                color: var(--secondary-color);
+                text-decoration: none;
+                font-weight: 600;
+            }
+            
+            .womens-history-month a:hover {
+                color: var(--link-hover);
+                text-decoration: underline;
+            }
+            
+            @media (max-width: 768px) {
+                .womens-history-month ul {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                
+                .womens-history-month li {
+                    width: 100%;
+                }
+            }
         </style>
     </head>
     <body>
@@ -321,6 +383,16 @@
                     <a href="https://www.instagram.com/popsci_ai?igsh=MTM0ZWpyMnFmNTlpMg==" class="social-link" target="_blank"><i class="fab fa-instagram"></i>Follow @popsci_ai</a>
                 </div>
             </header>
+            
+            <!-- Women's History Month Section -->
+            <div class="womens-history-month">
+                <h3>Women's History Month</h3>
+                <p>Celebrating women pioneers in science and technology:</p>
+                <ul>
+                    <li><a href="https://click.popsci.ai/RadiaPerlman">Radia Perlman</a> - Computer scientist and network engineer known as the "Mother of the Internet"</li>
+                    <li><a href="https://click.popsci.ai/HedyLamarr">Hedy Lamarr</a> - Actress and inventor who co-created frequency hopping spread spectrum technology</li>
+                </ul>
+            </div>
             
             <div class="topic-grid">
                 <div class="topic-card">
@@ -523,16 +595,6 @@
                 <div class="creator-info">
                     <p>Created by a BMSIS scholar studying Software Engineering at AUIS. Through PopSciAi, I'm passionate about making science accessible to everyone by curating and sharing interesting content across multiple disciplines.</p>
                     <a href="mailto:zheenstran@gmail.com" class="contact-info"><i class="fas fa-envelope"></i>Contact for collaborations: zheenstran@gmail.com</a>
-                </div>
-                
-                <!-- Women's History Month Section -->
-                <div class="womens-history-month">
-                    <h3>Women's History Month</h3>
-                    <p>Celebrating women pioneers in science and technology:</p>
-                    <ul>
-                        <li><a href="https://click.popsci.ai/RadiaPerlman">Radia Perlman</a> - Computer scientist and network engineer known as the "Mother of the Internet"</li>
-                        <li><a href="https://click.popsci.ai/HedyLamarr">Hedy Lamarr</a> - Actress and inventor who co-created frequency hopping spread spectrum technology</li>
-                    </ul>
                 </div>
                 
                 <p>© PopSciAi 2025 | All topics gathered from publicly available and open-source platforms (Wikipedia, YouTube, etc.)</p>
